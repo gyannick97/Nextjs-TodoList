@@ -1,0 +1,6 @@
+runtime: nodejs10
+env: standard
+env_variables:
+  node_env: staging # Can't overwrite NODE_ENV.
+automatic_scaling:
+  min_instances: 1

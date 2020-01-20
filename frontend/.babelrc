@@ -1,0 +1,24 @@
+{
+  "presets": ["next/babel", "@zeit/next-typescript/babel"],
+  // c.f. https://github.com/ant-design/babel-plugin-import
+  "plugins": [
+    ["add-react-displayname"], // For LogRocket.
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "libraryDirectory": "lib",
+        "style": true
+      }
+    ],
+    // Fix "Warning: Prop `className` did not match" bug.
+    [
+      "styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "preprocess": false
+      }
+    ]
+  ]
+}

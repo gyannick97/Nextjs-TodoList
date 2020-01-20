@@ -1,0 +1,26 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "mocha": true,
+    "node": true
+  },
+  "rules": {
+    "no-underscore-dangle": "off",
+    "no-shadow": "warn",
+    "func-names": "off",
+    "max-len": [
+      "warn",
+      {
+        "code": 100,
+        "ignoreComments": true
+      }
+    ],
+    "no-unused-vars": "warn",
+    "no-use-before-define": "warn",
+    "no-param-reassign": "warn",
+    "consistent-return": "warn",
+    "quotes": [2, "backtick", { "avoidEscape": true }],
+    "no-console": "off",
+    "indent": ["error", 2]
+  }
+}

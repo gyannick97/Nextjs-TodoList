@@ -1,0 +1,63 @@
+{
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "prepare": "tsc -p .",
+    "dev": "ts-node-dev --respawn --transpileOnly server.js",
+    "start": "./node_modules/nodemon/bin/nodemon.js ./build/server.js",
+    "lint": "./node_modules/tslint/bin/tslint \"**/*.ts{,x} --fix\"",
+    "deployProd": "gcloud app deploy app.prod.yaml --project=profound-coda-257623 --version=1 --version=1 --quiet",
+    "browseProd": "gcloud app browse --project=profound-coda-257623",
+    "logsProd": "gcloud app logs tail --project=profound-coda-257623",
+    "deployStaging": "gcloud app deploy app.staging.yaml --project=triple-hour-258900 --version=1 --version=1 --quiet",
+    "browseStaging": "gcloud app browse --project=triple-hour-258900",
+    "logsStaging": "gcloud app logs tail --project=triple-hour-258900",
+    "gcp-build": "tsc -p .",
+    "deployBoth": "yarn deployProd && yarn deployStaging"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && tsc"
+    }
+  },
+  "dependencies": {
+    "@google-cloud/logging-winston": "^2.0.1",
+    "@google-cloud/storage": "^3.0.4",
+    "@sendgrid/mail": "^6.4.0",
+    "@slack/webhook": "^5.0.2",
+    "@types/cors": "^2.8.5",
+    "@types/express": "^4.17.0",
+    "@types/mongoose": "^5.5.7",
+    "@types/node": "^12.0.10",
+    "@types/retry": "^0.12.0",
+    "@types/stripe": "^6.30.5",
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "date-fns": "^2.4.1",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.1",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.6.3",
+    "mongoose-paginate": "^5.0.3",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.2",
+    "nodemon": "^1.19.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "puppeteer": "^1.20.0",
+    "retry": "^0.12.0",
+    "stream": "^0.0.2",
+    "stripe": "^7.4.0",
+    "typescript": "^3.5.1",
+    "uuid": "^3.3.2",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "husky": "^2.4.0",
+    "ts-node-dev": "^1.0.0-pre.39",
+    "tslint": "^5.17.0"
+  }
+}
